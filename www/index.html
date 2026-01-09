@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vít Rozkovec - Fullstack Java Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #9abb45;
+            --accent-light: #b8d468;
+            --text-dark: #2d2d2d;
+            --text-muted: #5a5a5a;
+            --bg-cream: #fdfcfa;
+            --border-light: #e8e6e2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, #f5f5f0 0%, #eaeae5 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg-cream);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.12), 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 50px 50px 40px;
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-bar span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-bar a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-bar a:hover {
+            color: var(--accent);
+        }
+
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+        }
+
+        .left-column {
+            padding: 45px 50px;
+            border-right: 1px solid var(--border-light);
+        }
+
+        .right-column {
+            padding: 45px 40px;
+            background: linear-gradient(180deg, rgba(154,187,69,0.03) 0%, transparent 100%);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        .summary p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 32px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-category {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .experience-company {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .experience-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .experience-links {
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+
+        .experience-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-right: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .experience-links a:hover {
+            color: var(--accent-light);
+            text-decoration: underline;
+        }
+
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .project-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .project-item a {
+            min-width: 140px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .language-item {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .language-level {
+            color: var(--text-muted);
+        }
+
+        .skill-item {
+            margin-bottom: 18px;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+
+        .skill-bar {
+            height: 8px;
+            /* background: var(--border-light); */
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+            border-radius: 4px;
+            transition: width 0.8s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+                padding: 30px 25px;
+            }
+
+            .right-column {
+                padding: 30px 25px;
+            }
+
+            .header {
+                padding: 30px 25px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-bar {
+                gap: 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 10mm;
+            }
+
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                max-width: none;
+                border-radius: 0;
+            }
+
+            .header {
+                padding: 25px 35px 20px;
+            }
+
+            .name {
+                font-size: 2rem;
+                margin-bottom: 4px;
+            }
+
+            .title {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+
+            .contact-bar {
+                gap: 25px;
+                font-size: 0.8rem;
+            }
+
+            .left-column {
+                padding: 25px 35px;
+            }
+
+            .right-column {
+                padding: 25px 30px;
+            }
+
+            .section {
+                margin-bottom: 20px;
+            }
+
+            .section-title {
+                font-size: 0.9rem;
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+            }
+
+            .summary p {
+                font-size: 0.8rem;
+                margin-bottom: 8px;
+                line-height: 1.5;
+            }
+
+            .experience-item {
+                margin-bottom: 18px;
+            }
+
+            .experience-category {
+                font-size: 0.65rem;
+                margin-bottom: 3px;
+            }
+
+            .experience-company {
+                font-size: 0.85rem;
+                margin-bottom: 2px;
+            }
+
+            .experience-date {
+                font-size: 0.75rem;
+                margin-bottom: 6px;
+            }
+
+            .experience-description {
+                font-size: 0.78rem;
+                line-height: 1.45;
+            }
+
+            .experience-links {
+                margin-top: 6px;
+            }
+
+            .project-item a {
+                font-size: 0.75rem;
+                min-width: 110px;
+            }
+
+            .project-desc {
+                font-size: 0.75rem;
+            }
+
+            .language-item {
+                font-size: 0.8rem;
+                margin-bottom: 6px;
+            }
+
+            .skill-item {
+                margin-bottom: 10px;
+            }
+
+            .skill-name {
+                font-size: 0.78rem;
+                margin-bottom: 3px;
+            }
+
+            .skill-bar {
+                height: 6px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <h1 class="name">VÍT ROZKOVEC</h1>
+            <p class="title">Fullstack Java developer, Latudio Co-Founder and CTO</p>
+            <div class="contact-bar">
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Benešov / Prague, Czech Republic
+                </span>
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    +420 777 852 669
+                </span>
+                <span>
+                    <svg class="contact-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:vit@latudio.com">vit@latudio.com</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <section class="section summary">
+                    <h2 class="section-title">Summary</h2>
+                    <p>I'm a full stack Java software developer with 15+ years of experience in building customized, maintainable web applications for your company's needs. What drives me is positive customer feedback after each successfully implemented feature. It is nice to see that my work has a positive impact on people's lives.</p>
+                    <p>I enjoy talking to people to find out what their problems are and how those problems could be solved efficiently. With enough domain knowledge, I can come up with creative solutions that help push the project forward.</p>
+                    <p>For my work to be enjoyable, it has to have meaning.</p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Work Experiences</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-category">AI / LLM Integrations</div>
+                        <div class="experience-company">SOUTSHORE AI, REMOTE, Massachusetts, US</div>
+                        <div class="experience-date">Feb 2025 - present</div>
+                        <p class="experience-description">This is my most recent work including AI. The project is aimed at helping parents and guardians of persons with autistic disorders. Currently, in the first phase we collect information from various sources, upload them to the knowledge base, and create a chatbot that will compile answers with links to actual documents. The project should unify the fragmented landscape, where information is spread across several state agencies and it takes a great amount of time to navigate and find relevant information.</p>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-category">Co-Founder & CTO</div>
+                        <div class="experience-company">LATUDIO, REMOTE, WORLDWIDE</div>
+                        <div class="experience-date">Jan 2015 - present</div>
+                        <p class="experience-description">Developing content platform (Java, Wicket, Hibernate), API (Java, Javalin, Hibernate, Jdbi), database modeling, product design, UI/UX, teamwork and team coordination. We have managed to develop a mobile app with a listening-first approach to language learning. My work allowed content contributors to prepare content for the app and serve this content to the app via API. As a startup on a tight bootstrapped budget, I learned how to make the most of available tools and technologies while being focused on our goal for a long period of time.</p>
+                        <div class="experience-links">
+                            <a href="https://www.latudio.com" target="_blank">www.latudio.com</a>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-category">Freelance Software Developer</div>
+                        <div class="experience-company">REMOTE / ON SITE / VARIOUS CLIENTS</div>
+                        <div class="experience-date">2009 - present</div>
+                        <p class="experience-description">I have built several larger systems for various companies to allow them to grow further. Talking directly with customers, I was able to propose custom tailor-made solutions with positive feedback. Nowadays, the systems I have built are a crucial part of the company, still under active development.</p>
+                        <div class="experience-links project-list">
+                            <div class="project-item">
+                                <a href="https://www.mintmarket.cz" target="_blank">www.mintmarket.cz</a>
+                                <span class="project-desc">— frontend & admin</span>
+                            </div>
+                            <div class="project-item">
+                                <a href="https://www.jaclean.cz" target="_blank">www.jaclean.cz</a>
+                                <span class="project-desc">— intranet</span>
+                            </div>
+                            <div class="project-item">
+                                <a href="https://www.svetit.cz" target="_blank">www.svetit.cz</a>
+                                <span class="project-desc">— intranet</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Language Skills</h2>
+                    <div class="language-item">
+                        <span class="language-name">Czech</span>
+                        <span class="language-level">— Native speaker</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">— Fluent reading / speaking / writing</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section">
+                    <h2 class="section-title">Skills</h2>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">Mentoring</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Analytic skills</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Project management</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Java</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Unit testing</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Hibernate ORM</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">SQL</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Docker</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Spring Boot</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 30%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Proxmox</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Prometheus / Grafana</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 30%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Ansible</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Javascript</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Git</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">PHP</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Jenkins</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Linux</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Bash</div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
