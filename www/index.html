@@ -229,8 +229,27 @@
             color: var(--text-muted);
         }
 
+        .skill-group {
+            margin-bottom: 20px;
+        }
+
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-title {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
         .skill-item {
-            margin-bottom: 18px;
+            margin-bottom: 12px;
         }
 
         .skill-name {
@@ -241,7 +260,7 @@
 
         .skill-bar {
             height: 8px;
-            /* background: var(--border-light); */
+            background: var(--border-light);
             border-radius: 4px;
             overflow: hidden;
         }
@@ -391,8 +410,17 @@
                 margin-bottom: 6px;
             }
 
+            .skill-group {
+                margin-bottom: 12px;
+            }
+
+            .skill-group-title {
+                font-size: 0.6rem;
+                margin-bottom: 6px;
+            }
+
             .skill-item {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .skill-name {
@@ -499,77 +527,84 @@
                 <section class="section">
                     <h2 class="section-title">Skills</h2>
                     
-                    <div class="skill-item">
-                        <div class="skill-name">Mentoring</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                    <div class="skill-group">
+                        <div class="skill-group-title">Core Development</div>
+                        <div class="skill-item">
+                            <div class="skill-name">Java</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">SQL</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Hibernate ORM</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Unit testing</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Javascript</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">PHP</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Analytic skills</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">DevOps & Infrastructure</div>
+                        <div class="skill-item">
+                            <div class="skill-name">Linux</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Docker</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Git</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Ansible</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Bash</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Jenkins</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Proxmox</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Prometheus / Grafana</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 30%"></div></div>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Project management</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Java</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Unit testing</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Hibernate ORM</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">SQL</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Docker</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Spring Boot</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 30%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Proxmox</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Prometheus / Grafana</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 30%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Ansible</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Javascript</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 40%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Git</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">PHP</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Jenkins</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Linux</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">Bash</div>
-                        <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Leadership</div>
+                        <div class="skill-item">
+                            <div class="skill-name">Analytic skills</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Project management</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Mentoring</div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 50%"></div></div>
+                        </div>
                     </div>
                 </section>
             </div>
